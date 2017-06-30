@@ -32,8 +32,8 @@ contract Standard23Token is ERC23, StandardToken {
 
   //function that is called when transaction target is a contract
   function contractFallback(address _origin, address _to, uint _value, bytes _data) private returns (bool success) {
-    ERC23Receiver reciever = ERC23Receiver(_to);
-    return reciever.tokenFallback(msg.sender, _origin, _value, _data);
+    ERC23Receiver receiver = ERC23Receiver(_to);
+    return receiver.tokenFallback(msg.sender, _origin, _value, _data);
   }
 
   //assemble the given address bytecode. If bytecode exists then the _addr is a contract.
